@@ -12,17 +12,24 @@
         ></PostItem>
       </div>
     </div>
+    <!-- 게시판 상세 미리보기 -->
+    <hr class="my-4" />
+    <!-- default slot으로 들어감 -->
+    <AppCard>
+      <PostDetailView :id="4"></PostDetailView>
+    </AppCard>
   </div>
 </template>
 
 <script setup>
 import PostItem from '@/components/posts/PostItem.vue';
-import { getPosts } from '@/api/posts';
+import PostDetailView from '@/views/posts/PostDetailView.vue';
+import AppCard from '@/components/AppCard.vue';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { getPosts } from '@/api/posts';
 
 const router = useRouter();
-
 const posts = ref([]);
 
 /** 게시글 목록 조회 */
