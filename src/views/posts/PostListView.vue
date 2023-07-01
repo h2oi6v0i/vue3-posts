@@ -34,6 +34,7 @@ const posts = ref([]);
 
 /** 게시글 목록 조회 */
 const fetchPosts = () => {
+  console.log(getPosts());
   posts.value = getPosts();
 };
 
@@ -41,20 +42,11 @@ fetchPosts();
 
 /** 게시글 상세 페이지로 이동 */
 const goPage = id => {
-  // 방법 1
-  // router.push(`/posts/${id}`);
-
-  // 방법 2
   router.push({
     name: 'PostDetail',
     params: {
       id,
     },
-    // query: {
-    //   searchText: 'Hello',
-    // },
-    // hash: '#world',
-    // query와 hash까지 넣으면 http://127.0.0.1:5173/posts/1?searchText=Hello#world 이런 URL 생성됨
   });
 };
 </script>
