@@ -40,7 +40,7 @@ const post = ref({
 });
 
 const props = defineProps({
-  id: Number,
+  id: String,
 });
 
 /** 게시글 조회 */
