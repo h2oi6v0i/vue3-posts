@@ -12,11 +12,9 @@
         ></PostItem>
       </div>
     </div>
-    <!-- 게시판 상세 미리보기 -->
     <hr class="my-4" />
-    <!-- default slot으로 들어감 -->
     <AppCard>
-      <PostDetailView :id="4"></PostDetailView>
+      <PostDetailView :id="2"></PostDetailView>
     </AppCard>
   </div>
 </template>
@@ -33,9 +31,13 @@ const router = useRouter();
 const posts = ref([]);
 
 /** 게시글 목록 조회 */
-const fetchPosts = () => {
-  console.log(getPosts());
-  posts.value = getPosts();
+const fetchPosts = async () => {
+  try {
+    const { data } = await getPosts();
+    posts.value = data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 fetchPosts();
